@@ -1,59 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="first.js"></script>
-</head>
-<body>
-    <h1>
-        TO DO LIST
-    </h1 >
-    <input type="text" id="TASK"  placeholder="Enter your TASK">
-    <button type="button" id="button">Add</button>
-    <ul id= "taskList"></ul>
-    <script>
-        const TASK = document.getElementById("TASK");
-        const button =document.getElementById("button");
-        const taskList= document.getElementById("taskList");
-
-        button.addEventListener("click",addtask);
-
-        function addtask() {
-            const tasktext =TASK.value.trim();
-
-            if(tasktext==""){
-                alert("Please enter a task");
-                return;
-            }
-            const li =document.createElement("li");
-            //task text
-            const span = document.createElement("span");
-            span.textContent = tasktext;
-            //tick button
-            const tickBtn = document.createElement("button");
-            tickBtn.textContent="true";
-            tickBtn.className="tickbtn";
-            tickBtn.addEventListener("click",function(){
-                span.classList.toggle("done");
-            })
-            //delete
-            const delbtn = document.createElement("button");
-            delbtn.textContent = "X";
-            delbtn.className="delbtn";
-            delbtn.addEventListener("click",function(){
-                taskList.removeChild(li);
-            });
-            //put
-            li.appendChild(span);
-            li.appendChild(tickBtn);
-            li.appendChild(delbtn);
-            taskList.appendChild(li);
-            //clear input
-            TASK.value="";
-
-        }
-    </script>
-</body>
-</html> 
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>first-project</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
